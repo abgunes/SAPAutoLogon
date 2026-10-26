@@ -177,6 +177,17 @@ Use the test landscape from Setup step 3. Create a new empty group `SAP7` in the
 
 ---
 
+### A8. Update check
+
+Needs an internet connection that can reach `raw.githubusercontent.com`. KeePass reads the version file at the address returned by the plugin (`https://raw.githubusercontent.com/abgunes/SAPAutoLogon/main/SAPAutoLogon/Info/keepass_plugin.ver`), which lists `SAPAutoLogon:1.0.0.0`.
+
+| # | Step | Expected | Result |
+|---|------|----------|--------|
+| 1 | Open the address above in a browser. | Plain text of three lines: `:`, `SAPAutoLogon:1.0.0.0` (the version of the installed plugin) and `:`. | [ ] Pass  [ ] Fail |
+| 2 | In KeePass choose **Help > Check for Updates** with plugin version 1.0.0.0 installed and the file saying 1.0.0.0. | The result list shows `SAPAutoLogon` with the installed and the latest version both 1.0.0.0 and the status "up to date" (KeePass's own wording). | [ ] Pass  [ ] Fail |
+| 3 | Block the address (for example in the hosts file or by switching off the network) and run the check again. | `SAPAutoLogon` gets an error status for the check, KeePass itself keeps working and nothing else changes. | [ ] Pass  [ ] Fail |
+| 4 | Once, at the next release: install the older DLL, then check for updates after the version file on `main` lists the new version. | `SAPAutoLogon` is listed with the new version as available. | [ ] Pass  [ ] Fail |
+
 ## Part B: real-system launch tests
 
 The connection syntax for logon groups, SNC and SAProuter was taken from SAP documentation (SAP Note 103019, "SAPshortcut: Program parameters"). It was **not** tested against a real SAP system. The unit tests only prove that the plugin builds the strings below.

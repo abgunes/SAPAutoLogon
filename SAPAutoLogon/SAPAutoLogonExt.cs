@@ -31,6 +31,9 @@ namespace SAPAutoLogon
             }
         }
 
+        // Version information file for the KeePass update check
+        public override string UpdateUrl { get { return UpdateSource.VersionFileUrl; } }
+
         // The resource getter creates a new bitmap on every call
         private Image oSmallIcon = null;
 

@@ -2,6 +2,9 @@
 
 A KeePass 2.x plugin that adds an **SAP** tab to the Add/Edit Entry dialog. You pick a system from your SAP Logon list and the SAP connection fields of the entry are filled for you. Entries can then start SAP GUI or SAP Business Client straight from the KeePass entry list.
 
+- Project page: https://abgunes.github.io/SAPAutoLogon/
+- Download: https://github.com/abgunes/SAPAutoLogon/releases/latest
+
 ## What it does
 
 - **SAP tab** in the Add Entry and Edit Entry dialogs, with two modes:
@@ -11,6 +14,7 @@ A KeePass 2.x plugin that adds an **SAP** tab to the Add/Edit Entry dialog. You 
 - Supports direct application servers, logon groups (message server), SAProuter strings and SNC.
 - **SAP GUI** and **Business Client** columns in the entry list, and two items in the entry right-click menu, start SAP GUI (`sapshcut.exe`) or SAP Business Client (`NWBC.exe`).
 - The values are stored as normal entry string fields, so they are also visible on the Advanced tab and the database stays readable without the plugin.
+- Works with the KeePass update check (**Help > Check for Updates**): KeePass reads the version file `SAPAutoLogon/Info/keepass_plugin.ver` of this repository and tells you when a newer release exists.
 
 ## Requirements
 
@@ -20,7 +24,7 @@ A KeePass 2.x plugin that adds an **SAP** tab to the Add/Edit Entry dialog. You 
 
 ## Install
 
-1. Copy `SAPAutoLogon.dll` into the `Plugins` folder of your KeePass installation (for example `C:\Program Files\KeePass Password Safe 2\Plugins`).
+1. Download `SAPAutoLogon.dll` from the [latest release](https://github.com/abgunes/SAPAutoLogon/releases/latest) and copy it into the `Plugins` folder of your KeePass installation (for example `C:\Program Files\KeePass Password Safe 2\Plugins`).
 2. Restart KeePass.
 
 Before installing, remove any older SAP launch plugin that supplied `Gui`/`NBC` columns from the KeePass `Plugins` folder; otherwise both plugins load and you get two sets of menu items.
