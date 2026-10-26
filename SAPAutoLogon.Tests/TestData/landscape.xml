@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Landscape version="1">
+  <Workspaces>
+    <Workspace uuid="w-1" name="Local" hidden="0" expanded="1">
+      <Item uuid="i-0" serviceid="s-4"/>
+      <Node uuid="n-de" name="DE" expanded="0">
+        <Item uuid="i-1" serviceid="Service@s-1"/>
+        <Item uuid="i-2" serviceid="s-8"/>
+        <Item uuid="i-3" serviceid="s-missing"/>
+      </Node>
+      <Node uuid="n-demo" name="Demo" expanded="1">
+        <Node uuid="n-sub1" name="Sub1">
+          <Item uuid="i-4" serviceid="s-2"/>
+          <Node uuid="n-sub11" name="Sub1.1">
+            <Item uuid="i-5" serviceid="s-3"/>
+            <Item uuid="i-6" serviceid="s-1"/>
+          </Node>
+        </Node>
+        <Node uuid="n-sub2" name="Sub2">
+          <Item uuid="i-7" serviceid="s-5"/>
+        </Node>
+        <Node uuid="n-sub2b" name="Sub2">
+          <Item uuid="i-8" serviceid="s-6"/>
+        </Node>
+        <Node uuid="n-empty" name="Empty"/>
+        <Node uuid="n-noname" name="">
+          <Item uuid="i-9" serviceid="s-4"/>
+        </Node>
+      </Node>
+      <Node uuid="n-hidden" name="Hidden" hidden="1">
+        <Item uuid="i-10" serviceid="s-2"/>
+      </Node>
+    </Workspace>
+    <Workspace uuid="w-2" name="Secret" hidden="1">
+      <Node uuid="n-x" name="X"><Item uuid="i-11" serviceid="s-3"/></Node>
+    </Workspace>
+  </Workspaces>
+  <Messageservers>
+    <Messageserver uuid="ms-1" name="Q25" host="ms1.example.test" port="3600" routerid="r-1"/>
+    <Messageserver uuid="ms-2" name="Q26" host="ms2.example.test"/>
+  </Messageservers>
+  <Routers>
+    <Router uuid="r-1" name="R1" router="/H/router.example.test/S/3299"/>
+    <Router uuid="r-2" name="R2" router="/H/router.example.test/H/10.0.0.1"/>
+  </Routers>
+  <Services>
+    <Service type="SAPGUI" uuid="s-1" name="S25 - Development" systemid="S25" server="10.0.0.5:3200" mode="1" routerid="r-2" client="100" language="EN" user="ALICE" sncop="-1"/>
+    <Service type="SAPGUI" uuid="s-2" name="Q25 - Group" systemid="OLD" server="PUBLIC" msid="ms-1" mode="1" sncop="-1"/>
+    <Service type="SAPGUI" uuid="s-3" name="S26 - SNC" systemid="S26" server="10.0.0.6:3201" mode="1" sncname="p:CN=S26" sncop="3"/>
+    <Service type="SAPGUI" uuid="s-4" name="X1 - Odd port" systemid="X1" server="odd.example.test:3300" mode="1"/>
+    <Service type="SAPGUI" uuid="s-5" name="S25 - Development" systemid="S25" server="10.0.0.7:3202" mode="1"/>
+    <Service type="SAPGUI" uuid="s-6" name="Q26 - No port" systemid="Q26" server="PUBLIC" msid="ms-2" mode="1"/>
+    <Service type="SAPGUI" uuid="s-7" name="Z - Broken group" systemid="Z" server="GRP" msid="missing" mode="1"/>
+    <Service type="Reference" uuid="s-8" name="Ref" systemid="REF" server="10.0.0.9:3200"/>
+    <Service type="SystemCommand" uuid="s-9" name="Cmd" cmd="x"/>
+  </Services>
+</Landscape>

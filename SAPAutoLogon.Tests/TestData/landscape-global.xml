@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Landscape>
+  <Workspaces />
+  <Messageservers>
+    <Messageserver uuid="ms-g" name="G25" host="msg.example.test" port="3600" />
+  </Messageservers>
+  <Routers>
+    <Router uuid="r-g" name="Global router" router="/H/router.example.test/S/3299" />
+  </Routers>
+</Landscape>

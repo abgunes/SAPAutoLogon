@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>5</LangVersion>
+    <OutputType>Library</OutputType>
+    <AssemblyName>SAPAutoLogon</AssemblyName>
+    <RootNamespace>SAPAutoLogon</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ApplicationIcon>Resources\sap_logo.ico</ApplicationIcon>
+    <Deterministic>true</Deterministic>
+    <KeePassExe Condition="'$(KeePassExe)' == ''">C:\Program Files\KeePass Password Safe 2\KeePass.exe</KeePassExe>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="bin\**;obj\**" />
+    <EmbeddedResource Include="OptionDialog.resx" DependentUpon="OptionDialog.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <None Include="Info\keepass_plugin.ver" />
+    <None Include="Resources\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="KeePass">
+      <HintPath>$(KeePassExe)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

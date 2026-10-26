@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAPAutoLogon, a KeePass plugin for SAP Logon</title>
+  <meta name="description" content="A free KeePass plugin that fills SAP connection fields from SAP Logon, imports whole SAP Logon folders and starts SAP GUI or Business Client from the entry list.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <link rel="canonical" href="https://abgunes.github.io/SAPAutoLogon/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SAPAutoLogon, a KeePass plugin for SAP Logon">
+  <meta property="og:description" content="Fill SAP connection fields from SAP Logon, import whole folders and start SAP GUI or Business Client from KeePass.">
+  <meta property="og:url" content="https://abgunes.github.io/SAPAutoLogon/">
+  <meta property="og:image" content="https://abgunes.github.io/SAPAutoLogon/assets/import-popup.png">
+  <meta property="og:image:width" content="877">
+  <meta property="og:image:height" content="666">
+  <meta property="og:image:alt" content="The Import from SAP Logon window of the SAPAutoLogon KeePass plugin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SAPAutoLogon, a KeePass plugin for SAP Logon">
+  <meta name="twitter:description" content="Fill SAP connection fields from SAP Logon, import whole folders and start SAP GUI or Business Client from KeePass.">
+  <meta name="twitter:image" content="https://abgunes.github.io/SAPAutoLogon/assets/import-popup.png">
+  <script src="assets/theme.js"></script>
+  <link rel="preload" href="assets/fonts/host-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="layout">
+    <aside class="rail">
+      <a class="wordmark" href="#top" aria-label="SAPAutoLogon, back to top">SAPAutoLogon</a>
+      <nav aria-label="Guide">
+        <p class="rail-label">Guide</p>
+        <ul class="rail-list">
+          <li><a href="#top">Overview</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#features">What it does</a></li>
+          <li><a href="#fields">Fields</a></li>
+          <li><a href="#notes">Before you save</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </nav>
+      <p class="rail-links"><a href="https://github.com/abgunes/SAPAutoLogon">Source code</a><br><a href="https://github.com/abgunes/SAPAutoLogon/releases">Releases</a></p>
+    </aside>
+
+    <div class="content">
+      <button class="mode" id="mode" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" hidden>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+
+      <main id="main" tabindex="-1">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="container hero-grid">
+            <div class="hero-head">
+              <h1 id="hero-title">Your SAP Logon list, inside KeePass</h1>
+              <div class="hero-side">
+                <p class="lead">Fill SAP entries from SAP Logon and start SAP GUI from KeePass.</p>
+                <p class="actions">
+                  <a class="btn btn--primary" href="https://github.com/abgunes/SAPAutoLogon/releases">Download</a>
+                  <a class="btn" href="https://github.com/abgunes/SAPAutoLogon">Source code</a>
+                </p>
+                <p class="small">Free, for Windows and KeePass 2.x.</p>
+              </div>
+            </div>
+            <figure class="hero-visual" data-loop data-kind="product">
+              <img src="assets/demo-poster.png" data-src="assets/demo.gif" width="1300" height="669" fetchpriority="high" decoding="async"
+                   alt="Recording in KeePass: a group is right-clicked, Import from SAP Logon is chosen, the folder Demo is selected and imported, and the new entry shows Click-To-Open in the Business Client and SAP GUI columns.">
+              <figcaption>Importing a SAP Logon folder into a KeePass group.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section section--install" id="install" aria-labelledby="install-title">
+          <div class="container split">
+            <div class="split-head">
+              <h2 id="install-title">Install in four steps</h2>
+              <ol class="steps">
+                <li>Download <span class="measured">SAPAutoLogon.dll</span> from <a href="https://github.com/abgunes/SAPAutoLogon/releases">Releases</a>.</li>
+                <li>Copy it into the KeePass <span class="measured">Plugins</span> folder.
+                  <span class="copyline"><span class="measured">C:\Program Files\KeePass Password Safe 2\Plugins</span></span>
+                </li>
+                <li>Restart KeePass.</li>
+                <li>The SAP GUI and Business Client columns appear in the entry list.</li>
+              </ol>
+              <p class="small">Remove any older SAP launch plugin first, or both load.</p>
+            </div>
+            <div class="split-body">
+              <table class="table">
+                <caption class="visually-hidden">What you need</caption>
+                <thead><tr><th scope="col">You need</th><th scope="col">For</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Windows with KeePass 2.x</th><td>The plugin itself</td></tr>
+                  <tr><th scope="row">SAP GUI or SAP Business Client</th><td>Launching entries</td></tr>
+                  <tr><th scope="row">SAP Logon</th><td>The system list. Manual mode works without it.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--features" id="features" aria-labelledby="features-title">
+          <div class="container">
+            <h2 id="features-title">Fill, import, launch</h2>
+            <div class="bento panels">
+              <article class="tile tile--manual">
+                <div class="tile-text">
+                  <h3>Type the fields yourself</h3>
+                  <p>Manual is the default. Fill in the connection fields by hand, with a status line that says when the entry is ready to launch.</p>
+                </div>
+                <figure class="well" data-kind="product">
+                  <a href="assets/sap-tab-manual.png"><img src="assets/sap-tab-manual.png" width="656" height="630" loading="lazy" decoding="async"
+                     alt="The SAP tab of the KeePass Edit Entry dialog in Manual mode, with fields for system ID, client, language, application server, system number, message server, port, group, SAProuter string, SNC name, SNC level and transaction, and the status Ready to launch."></a>
+                </figure>
+              </article>
+              <article class="tile tile--fill">
+                <div class="tile-text">
+                  <h3>Fill from SAP Logon</h3>
+                  <p>On the SAP tab choose Automatic, search your list and click a system. Every field stays editable.</p>
+                </div>
+                <figure class="well" data-kind="product">
+                  <a href="assets/sap-tab-automatic.png"><img src="assets/sap-tab-automatic.png" width="654" height="629" loading="lazy" decoding="async"
+                     alt="The SAP tab of the KeePass Edit Entry dialog in Automatic mode: the search box holds Demo1, one system is listed, and the fields below are filled with system ID DEV, client 100 and language EN."></a>
+                </figure>
+              </article>
+              <article class="tile tile--import">
+                <div class="tile-text">
+                  <h3>Import a whole folder</h3>
+                  <p>Right-click a group and choose Import from SAP Logon, then pick a SAP Logon folder. Subfolders become groups, systems become entries.</p>
+                </div>
+                <div class="wells">
+                  <figure class="well" data-kind="product">
+                    <a href="assets/group-menu.png"><img src="assets/group-menu.png" width="410" height="495" loading="lazy" decoding="async"
+                       alt="The KeePass group right-click menu: Add Group, Edit Group, Delete Group, Rearrange, Find in This Group, Search Profiles, Import from SAP Logon with the SAP icon, and More Commands."></a>
+                  </figure>
+                  <figure class="well" data-kind="product">
+                    <a href="assets/import-popup.png"><img src="assets/import-popup.png" width="877" height="666" loading="lazy" decoding="async"
+                       alt="The Import from SAP Logon window: a header with the SAP logo, a search box, a tree of SAP Logon folders with system counts, the option Set user name for imported entries, and the Import and Cancel buttons."></a>
+                  </figure>
+                </div>
+              </article>
+              <article class="tile tile--launch">
+                <div class="tile-text">
+                  <h3>Launch from the entry list</h3>
+                  <p>Double-click a Click-To-Open cell, or use the right-click menu.</p>
+                </div>
+                <figure class="well" data-kind="product">
+                  <a href="assets/entry-list.png"><img src="assets/entry-list.png" width="1304" height="426" loading="lazy" decoding="async"
+                     alt="The KeePass main window after an import: nested groups on the left, and the entry Demo1 with the SAP icon showing Click-To-Open in the Business Client and SAP GUI columns."></a>
+                </figure>
+              </article>
+              <article class="tile tile--defaults">
+                <div class="tile-text">
+                  <h3>Sensible defaults</h3>
+                  <p>When SAP Logon stores none, client and language are filled in.</p>
+                </div>
+                <p class="reading" aria-label="Client 100, language EN"><span>100</span> <span>EN</span></p>
+              </article>
+              <article class="tile tile--keys">
+                <div class="tile-text">
+                  <h3>Shortcuts</h3>
+                </div>
+                <dl class="keys">
+                  <div><dt><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd></dt><dd>SAP GUI</dd></div>
+                  <div><dt><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></dt><dd>Business Client</dd></div>
+                </dl>
+              </article>
+              <article class="tile tile--read">
+                <div class="tile-text">
+                  <h3>Read only</h3>
+                  <p>SAP Logon files and the registry are never changed.</p>
+                </div>
+              </article>
+              <article class="tile tile--plain">
+                <div class="tile-text">
+                  <h3>Plain string fields</h3>
+                  <p>The values are normal entry fields, so the database stays readable without the plugin.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--fields" id="fields" aria-labelledby="fields-title">
+          <div class="container split">
+            <div class="split-head">
+              <h2 id="fields-title">Fields it writes</h2>
+              <p class="small">An entry launches with a system ID, a client and either a server and instance number, or a message server and group.</p>
+            </div>
+            <div class="split-body">
+              <table class="table table--fields">
+                <caption class="visually-hidden">String fields stored with each entry</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Holds</th></tr></thead>
+                <tbody>
+                  <tr><td class="measured">systemId</td><td>System ID</td></tr>
+                  <tr><td class="measured">applicationServer</td><td>Server for a direct connection</td></tr>
+                  <tr><td class="measured">systemNumber</td><td>Instance number</td></tr>
+                  <tr><td class="measured">messageServer</td><td>Message server host</td></tr>
+                  <tr><td class="measured">messageServerPort</td><td>Message server port</td></tr>
+                  <tr><td class="measured">group</td><td>Logon group</td></tr>
+                  <tr><td class="measured">sapRouterString</td><td>SAProuter string</td></tr>
+                  <tr><td class="measured">sncName</td><td>SNC partner name</td></tr>
+                  <tr><td class="measured">sncType</td><td>SNC level</td></tr>
+                  <tr><td class="measured">client</td><td>Client, 100 when unset</td></tr>
+                  <tr><td class="measured">language</td><td>Language, EN when unset</td></tr>
+                  <tr><td class="measured">transaction</td><td>Start transaction</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--notes" id="notes" aria-labelledby="notes-title">
+          <div class="container split">
+            <div class="split-head">
+              <h2 id="notes-title">Before you save</h2>
+            </div>
+            <ul class="rows split-body">
+              <li>
+                <h3>Saving is yours</h3>
+                <p>An import changes the database in memory. Save it, or close without saving.</p>
+              </li>
+              <li>
+                <h3>No undo</h3>
+                <p>KeePass has no undo. Existing entries are never changed, but review the result first.</p>
+              </li>
+              <li>
+                <h3>User name only</h3>
+                <p>The default user name sits in plain text in <span class="measured">KeePass.config.xml</span>. Never enter a password there.</p>
+              </li>
+              <li>
+                <h3>Password on the command line</h3>
+                <p><span class="measured">sapshcut -pw</span> passes the password on the command line while SAP GUI starts.</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section section--close" id="download" aria-labelledby="download-title">
+          <div class="container close-grid">
+            <div class="close-text">
+              <h2 id="download-title">Get SAPAutoLogon</h2>
+              <p class="lead">Copy the DLL, restart KeePass and open the SAP tab of any entry.</p>
+            </div>
+            <p class="actions"><a class="btn btn--primary" href="https://github.com/abgunes/SAPAutoLogon/releases">Download</a></p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <div class="container foot-grid">
+          <p>SAPAutoLogon is free and open source.</p>
+          <p><a href="https://github.com/abgunes/SAPAutoLogon">Source code</a><br><a href="https://github.com/abgunes/SAPAutoLogon/releases">Releases</a></p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>

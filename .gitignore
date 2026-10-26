@@ -1,0 +1,8 @@
+docs/
+.superpowers/
+Reference/
+bin/
+obj/
+*.plgx
+Img/
+.hallmark/
